@@ -497,7 +497,8 @@
 
         .map-container {
             width: 100%;
-            height: 400px;
+            height: 100%;
+            min-height: 400px;
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid var(--glass-border);
@@ -523,14 +524,43 @@
                 grid-template-columns: 1fr;
             }
             .hero-content h1 {
-            font-size: 2.8rem;
+                font-size: 3.5rem;
+            }
         }
-        
-        .section-padding {
-            padding: 70px 5%;
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                background: rgba(18, 22, 20, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s ease;
+                border-left: 1px solid var(--glass-border);
+            }
+            
+            .nav-links.nav-active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-padding {
+                padding: 70px 5%;
+            }
         }
-    }
-</style>
+    </style>
 </head>
 <body>
 
@@ -538,14 +568,14 @@
     <nav id="navbar">
         <div class="logo">Golden Asia</div>
         <div class="nav-links" id="navLinks">
-        <a href="#home" class="nav-item">Home</a>
-        <a href="#about" class="nav-item">About</a>
-        <a href="#services" class="nav-item">Services</a>
-        <a href="#booking" class="nav-item">Book Now</a>
-        <a href="#faq" class="nav-item">FAQ</a>
-        <a href="#contact" class="nav-item">Contact</a>
-    </div>
-    <div class="mobile-menu-btn" id="menuBtn">
+            <a href="#home" class="nav-item">Home</a>
+            <a href="#about" class="nav-item">About</a>
+            <a href="#services" class="nav-item">Services</a>
+            <a href="#booking" class="nav-item">Book Now</a>
+            <a href="#faq" class="nav-item">FAQ</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </div>
+        <div class="mobile-menu-btn" id="menuBtn">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
@@ -559,13 +589,13 @@
             <img src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg" alt="Tranquil Setting">
         </div>
         <div class="hero-content parallax-element" data-speed="-0.3">
-        <h1 class="reveal">Find Your Inner Peace</h1>
-        <p class="reveal" style="transition-delay: 0.2s;">Experience the pinnacle of relaxation and rejuvenation at Golden Asia Massage Spa. Your sanctuary of quietude in Missoula.</p>
-        <a href="#booking" class="btn-primary reveal" style="transition-delay: 0.4s;">Book Now</a>
-    </div>
-</section>
+            <h1 class="reveal">Find Your Inner Peace</h1>
+            <p class="reveal" style="transition-delay: 0.2s;">Experience the pinnacle of relaxation and rejuvenation at Golden Asia Massage Spa. Your sanctuary of quietude in Missoula.</p>
+            <a href="#booking" class="btn-primary reveal" style="transition-delay: 0.4s;">Book Now</a>
+        </div>
+    </section>
 
-<!-- About Us -->
+    <!-- About Us -->
     <section id="about" class="section-padding">
         <div class="floating-element parallax-element" data-speed="0.2" style="top: 10%; left: 5%;"></div>
         <div class="floating-element parallax-element" data-speed="-0.1" style="bottom: 10%; right: 10%; width: 200px; height: 200px;"></div>
@@ -652,6 +682,74 @@
     </section>
 
     <!-- Booking Section -->
+    <section id="booking" class="section-padding" style="background-color: var(--bg-dark); text-align: center;">
+        <div class="container">
+            <h2 class="section-title reveal">Book Your Appointment</h2>
+            <p class="section-subtitle reveal" style="margin-bottom: 40px;">Ready to relax? Schedule your visit with us securely online.</p>
+            
+            <div class="reveal glass-card" style="display: inline-block; padding: 50px 80px; background: rgba(0,0,0,0.2);">
+                <script id="anywhere_book_now_script" type="text/javascript" src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js"></script>
+                <button style="background-color: #000; color: #fff; border: none; padding: 12px 18px; font-size: 14px; font-weight: 600; border-radius: 6px; cursor: pointer;" id="Anywhere_button_iframe" class="anywhere-book-now-button" data-booking-url="https://goldenasianmassagespa.setmore.com" data-new-tab="false">Book now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding">
+        <div class="container faq-container">
+            <h2 class="section-title reveal">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item reveal">
+                    <button class="accordion-header">
+                        How early should I arrive?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We recommend arriving 10-15 minutes prior to your scheduled appointment. This allows you ample time to check-in, unwind, and transition into a relaxed state of mind before your session begins.</p>
+                    </div>
+                </div>
+                <div class="accordion-item reveal" style="transition-delay: 0.1s;">
+                    <button class="accordion-header">
+                        Can I get a massage if I have an injury?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>If you have an acute injury or a severe medical condition, we highly advise consulting with your physician prior to booking. Please inform us of any minor injuries or sensitive areas upon arrival so we can adjust the treatment to ensure your safety and comfort.</p>
+                    </div>
+                </div>
+                <div class="accordion-item reveal" style="transition-delay: 0.2s;">
+                    <button class="accordion-header">
+                        What is your cancellation policy?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We require at least a 24-hour notice for any cancellations or rescheduling of appointments. This courtesy allows us to accommodate other guests who may be waiting for a session.</p>
+                    </div>
+                </div>
+                <div class="accordion-item reveal" style="transition-delay: 0.3s;">
+                    <button class="accordion-header">
+                        Is there parking available?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, we offer convenient parking for our clients. There is ample space available directly near our facility to ensure your relaxing experience begins the moment you arrive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section id="contact" class="section-padding">
+        <div class="container contact-grid">
+            <div class="contact-info reveal">
+                <h2 class="section-title" style="text-align: left;">Visit Our Spa</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Ready to experience ultimate relaxation? Reach out to us to schedule your appointment or drop by our location.</p>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
                         <p>103 Brooks St,<br>Missoula, MT 59801<br>United States</p>
                     </div>
                 </div>
@@ -673,7 +771,7 @@
                 <a href="tel:+14068807873" class="btn-primary" style="align-self: flex-start; margin-top: 20px;">Call to Book Now</a>
             </div>
             
-            <div class="map-container glass-card reveal parallax-element" data-speed="-0.05">
+            <div class="map-container glass-card reveal">
                 <!-- Google Maps Embed for 103 Brooks St, Missoula, MT -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2731.859663801844!2d-114.0016629!3d46.8665977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x535dcc377ebbaebd%3A0xc5cfcf6de6511a7c!2s103%20Brooks%20St%2C%20Missoula%2C%20MT%2059801!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
